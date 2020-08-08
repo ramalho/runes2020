@@ -7,6 +7,16 @@ from operator import attrgetter
 Person = collections.namedtuple('Person', 'monitor group name')
 
 
+def count_attr(sequence, attr_name, attr_value):
+    count = 0
+    for item in sequence:
+        if getattr(item, attr_name) == attr_value:
+            count += 1
+    return count
+
+
+
+
 def distribute(rooms, people):
     people = list(people)
     random.shuffle(people)
